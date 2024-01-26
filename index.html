@@ -51,6 +51,9 @@
 				align-items:center;
 				justify-content:center;
 			}
+			#footer{
+				flex-direction:column;
+			}
 			section{
 				float:left;
 				width:50vw;
@@ -72,7 +75,9 @@
 					<div id="divwew">
 						<p id="text">Yooo</p>
 					</div>
-				</div>
+					
+				</div><br>
+				<p id="s_p">100XP/s</p>
 			</div>
 		</div>
 		<script>
@@ -95,7 +100,7 @@
 					l += 1;
 					var diff = l/(v/100)*d;
 					
-					document.getElementById("text").innerHTML = diff.toLocaleString(undefined,{ minimumFractionDigits: 1 })+"%";
+					document.getElementById("text").innerHTML = diff.toLocaleString(undefined,{ minimumFractionDigits: 2 })+"%";
 					document.getElementById("divwew").style.width = diff+"%";
 					t -= 1;
 					s += 0.04;
