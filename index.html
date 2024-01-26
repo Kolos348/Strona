@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="autor" content="Kolos348">
+		<title>Strona</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			body{
+				display:flex;
+				width:100vw;
+				height:100vh;
+				background-color:black;
+				align-items:center;
+				justify-content:center;
+			}
+			p{
+				z-index:2;
+				font-size:8vh;
+				text-align:center;
+				color:grey;
+				overflow:hidden;
+			}
+			div{
+				width:100vw;
+				height:100vh;
+			}
+			#divzew{
+				width:80vw;
+				height:10vh;
+				border: 5px solid grey;
+				border-radius: 8px;
+			}
+			#divwew{
+				display:flex;
+				z-index: -1;
+				width:0%;
+				height:100%;
+				background-color:white;
+				border-radius: 4px;
+				align-items:center;
+				justify-content:center;
+			}
+			#header,#footer{
+				width:100vw;
+				height:50vh;
+				display:flex;
+				align-items:center;
+				justify-content:center;
+			}
+			section{
+				float:left;
+				width:50vw;
+				height:50vh;
+				display:flex;
+				align-items:center;
+				justify-content:center;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div id="header">
+				<section id="level_section"><p id="lvl_text">Level 1</p></section>
+				<section id="requirement_section"><p id="req_text">Current requirement:<br>100XP</p></section>
+			</div>
+			<div id="footer">
+				<div id="divzew" onclick="PrepearToRun()">
+					<div id="divwew">
+						<p id="text">Yooo</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var d = 2;
+			var v = 250;
+			var l = 0;
+			var t = 1*v/d; 
+			var s = 0;
+			var IsRunning = false
+			var Level = 1;
+			function Loop(){
+					l += 1;
+					var diff = l/(v/100)*d;
+					document.getElementById("text").innerHTML = diff.toLocaleString(undefined,{ minimumFractionDigits: 1 })+"%";
+					document.getElementById("divwew").style.width = diff+"%";
+					t -= 1;
+					s += 0.04;
+					if (t>=1){
+						setTimeout(Loop,1000/v);
+					} else{
+						d = d/2;
+						t=(1*v/d);
+						l=0;
+						Level += 1;
+						document.getElementById("req_text").innerHTML = "Current requirement:<br>"+t+"XP";
+						document.getElementById("lvl_text").innerHTML = "Level: "+Level;
+						IsRunning = false;
+					}
+			}
+			function PrepearToRun(){
+				if (IsRunning==false){
+					IsRunning = true;
+					Loop();
+				}
+			}
+		</script>
+	</body>
+</html>
