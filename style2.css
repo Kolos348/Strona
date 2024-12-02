@@ -1,0 +1,29 @@
+.row,.col{
+    outline: 1px solid black;
+}
+.col{
+    width:15vw;
+    height:30vh;
+    padding: 0;
+    margin: 0;
+}
+.row{
+    width:60vw;
+    height:30vh;
+}
+img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    
+}
+h1 {
+    text-align: center;
+  }
+.MinigameB{
+    width:15vw;
+    height:30vh;
+    background-color: grey;
+    position: absolute;
+    z-index: 2;
+}

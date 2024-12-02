@@ -1,132 +1,60 @@
 <!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="autor" content="Kolos348">
-		<title>Strona</title>
-		<style>
-			*{
-				margin:0;
-				padding:0;
-			}
-			body{
-				display:flex;
-				width:100vw;
-				height:100vh;
-				background-color:black;
-				align-items:center;
-				justify-content:center;
-			}
-			p{
-				z-index:2;
-				font-size:8vh;
-				text-align:center;
-				color:grey;
-				overflow:hidden;
-			}
-			div{
-				width:100vw;
-				height:100vh;
-			}
-			#divzew{
-				width:80vw;
-				height:10vh;
-				border: 5px solid grey;
-				border-radius: 8px;
-			}
-			#divwew{
-				display:flex;
-				z-index: -1;
-				width:0%;
-				height:100%;
-				background-color:white;
-				border-radius: 4px;
-				align-items:center;
-				justify-content:center;
-			}
-			#header,#footer{
-				width:100vw;
-				height:50vh;
-				display:flex;
-				align-items:center;
-				justify-content:center;
-			}
-			#footer{
-				flex-direction:column;
-			}
-			section{
-				float:left;
-				width:50vw;
-				height:50vh;
-				display:flex;
-				align-items:center;
-				justify-content:center;
-			}
-		</style>
-	</head>
-	<body>
-		<div>
-			<div id="header">
-				<section id="level_section"><p id="lvl_text">Level 1</p></section>
-				<section id="requirement_section"><p id="req_text">Current requirement:<br>100XP</p></section>
-			</div>
-			<div id="footer">
-				<div id="divzew" onclick="PrepearToRun()">
-					<div id="divwew">
-						<p id="text">Yooo</p>
-					</div>
-					
-				</div><br>
-				<p id="s_p">100XP/s</p>
-			</div>
-		</div>
-		<script>
-			var d = 2;
-			var v = 250;
-			var l = 0;
-			var t = 1*v/d; 
-			var s = 0;
-			var IsRunning = false
-			var Level = 1;
-			var Data = window.localStorage.getItem("Data");
-			if (Data){
-				Level = parseInt(Data);
-				d = 2/Math.pow(2,Level);
-				t = 1*v/d;
-				document.getElementById("req_text").innerHTML = "Current requirement:<br>"+t+"XP";
-				document.getElementById("lvl_text").innerHTML = "Level: "+Level;				
-			}
-			function Loop(){
-					l += 1;
-					var diff = l/(v/100)*d;
-					
-					document.getElementById("text").innerHTML = diff.toLocaleString(undefined,{ minimumFractionDigits: 2 })+"%";
-					document.getElementById("divwew").style.width = diff+"%";
-					t -= 1;
-					s += 0.04;
-					if (t>=1){
-						setTimeout(Loop,1000/v);
-					} else{
-						d = d/2;
-						t=(1*v/d);
-						l=0;
-						Level += 1;
-						document.getElementById("req_text").innerHTML = "Current requirement:<br>"+t+"XP";
-						document.getElementById("lvl_text").innerHTML = "Level: "+Level;
-						IsRunning = false;
-					}
-			}
-			function PrepearToRun(){
-				if (IsRunning==false){
-					IsRunning = true;
-					Loop();
-				}
-			}
-			function SaveLoop(){
-				window.localStorage.setItem("Data",Level);
-				setTimeout(SaveLoop,5000);
-			}
-			SaveLoop();
-		</script>
-	</body>
-</html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container-12">
+        <div clss="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">Menu</a>
+                      <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index2.html">Minigame</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+        <div class="row no-gutters border-0">
+             <div class="card col-6 col-md-3 big-b p-1" style="width: 9rem;">
+                 <img src="M1.jpg" class="card-img-top" alt="...">
+                 <div class="card-body">
+                   <h5 class="card-title">Moneta 1</h5>
+                   <p class="card-text">Bardzo fajna moneta użyta w minigrze.</p>
+                 </div>
+              </div>
+             <div class="card col-6 col-md-3 big-b p-1" style="width: 18rem;">
+                   <img src="M2.jpg" class="card-img-top" alt="...">
+                 <div class="card-body">
+                  <h5 class="card-title">Moneta 2</h5>
+                  <p class="card-text">Bardzo fajna moneta użyta w minigrze.</p>
+                </div>
+            </div>
+            <div class="card col-6 col-md-3 big-b p-1" style="width: 18rem;">
+                <img src="M3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Moneta 3</h5>
+                  <p class="card-text">Bardzo fajna moneta użyta w minigrze.</p>
+                </div>
+            </div>
+            <div class="card col-6 col-md-3 big-b p-1" style="width: 18rem;">
+                <img src="M4.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Moneta 4</h5>
+                  <p class="card-text">Bardzo fajna moneta użyta w minigrze.</p>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
